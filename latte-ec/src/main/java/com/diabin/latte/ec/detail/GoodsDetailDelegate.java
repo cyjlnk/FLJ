@@ -3,6 +3,7 @@ package com.diabin.latte.ec.detail;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -14,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.VideoView;
 
 import com.ToxicBakery.viewpager.transforms.DefaultTransformer;
 import com.alibaba.fastjson.JSON;
@@ -60,7 +62,7 @@ public class GoodsDetailDelegate extends LatteDelegate implements
     @BindView(R2.id.view_pager)
     ViewPager mViewPager = null;
     @BindView(R2.id.detail_banner)
-    ConvenientBanner<String> mBanner = null;
+    VideoView mBanner = null;
     @BindView(R2.id.collapsing_toolbar_detail)
     CollapsingToolbarLayout mCollapsingToolbarLayout = null;
     @BindView(R2.id.app_bar_detail)
@@ -187,13 +189,15 @@ public class GoodsDetailDelegate extends LatteDelegate implements
         for (int i = 0; i < size; i++) {
             images.add(array.getString(i));
         }
-        mBanner
+        mBanner.setVideoURI(Uri.parse("http://alcdn.hls.xiaoka.tv/2017427/14b/7b3/Jzq08Sl8BbyELNTo/index.m3u8"));
+        mBanner.start();
+       /* mBanner
                 .setPages(new HolderCreator(), images)
                 .setPageIndicator(new int[]{R.drawable.dot_normal, R.drawable.dot_focus})
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
                 .setPageTransformer(new DefaultTransformer())
                 .startTurning(3000)
-                .setCanLoop(true);
+                .setCanLoop(true);*/
     }
 
     @Override

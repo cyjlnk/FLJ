@@ -6,7 +6,6 @@ import com.diabin.latte.app.Latte;
 import com.diabin.latte.ec.database.DatabaseManager;
 import com.diabin.latte.ec.icon.FontEcModule;
 import com.diabin.latte.net.interceptors.DebugInterceptor;
-import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
@@ -22,7 +21,10 @@ public class ExampleApp extends Application {
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
                 .withLoaderDelayed(1000)
-                .withApiHost("http://myblog.lnkjdx.com/api/")
+                .withApiHost("http://discuz.lnkjdx.com/api/")
+                .withJavascriptInterface("latte")
+                //添加Cookie同步拦截器
+                .withWebHost("http:/phpcms.lnkjdx.com/cyj/")
                 .withInterceptor(new DebugInterceptor("test",R.raw.test))
                 .configure();
 

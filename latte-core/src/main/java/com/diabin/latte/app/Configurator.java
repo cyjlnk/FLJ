@@ -2,6 +2,7 @@ package com.diabin.latte.app;
 
 
 import android.os.Handler;
+import android.support.annotation.NonNull;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
@@ -46,6 +47,17 @@ public class Configurator {
 
     public final Configurator withApiHost(String host){
         LATTE_CONFIGS.put(ConfigType.API_HOST,host);
+        return this;
+    }
+
+    //浏览器加载的HOST
+    public Configurator withWebHost(String host) {
+        LATTE_CONFIGS.put(ConfigType.WEB_HOST, host);
+        return this;
+    }
+
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        LATTE_CONFIGS.put(ConfigType.JAVASCRIPT_INTERFACE, name);
         return this;
     }
 

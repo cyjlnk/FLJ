@@ -12,6 +12,7 @@ public enum ConfigType {
     ICON,
     LOADER_DELAYED,
     INTERCEPTOR,
-    HANDLER
-
+    JAVASCRIPT_INTERFACE,
+    HANDLER,
+    WEB_HOST
 }

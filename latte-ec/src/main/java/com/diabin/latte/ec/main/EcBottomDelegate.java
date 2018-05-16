@@ -2,11 +2,11 @@ package com.diabin.latte.ec.main;
 
 import android.graphics.Color;
 
-import com.diabin.latte.delegates.BaseDelegate;
 import com.diabin.latte.delegates.bottom.BaseBottomDelegate;
 import com.diabin.latte.delegates.bottom.BottomItemDelegate;
 import com.diabin.latte.delegates.bottom.BottomTabBean;
 import com.diabin.latte.delegates.bottom.ItemBuilder;
+import com.diabin.latte.ec.main.discover.DiscoverDelegate;
 import com.diabin.latte.ec.main.index.IndexDelegate;
 import com.diabin.latte.ec.main.personal.PersonalDelegate;
 import com.diabin.latte.ec.main.sort.SortDelegate;
@@ -25,6 +25,7 @@ public class EcBottomDelegate extends BaseBottomDelegate {
 
         items.put(new BottomTabBean("{fa-home}","科研"),new IndexDelegate());
         items.put(new BottomTabBean("{fa-sort}","教学"),new SortDelegate());
+        items.put(new BottomTabBean("{fa-sort}","发现"),new DiscoverDelegate());
         items.put(new BottomTabBean("{fa-compass}","管理"),new IndexDelegate());
         items.put(new BottomTabBean("{fa-user}","我的"),new PersonalDelegate());
 
