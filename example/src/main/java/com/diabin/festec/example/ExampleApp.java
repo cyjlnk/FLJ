@@ -2,6 +2,7 @@ package com.diabin.festec.example;
 
 import android.app.Application;
 
+import com.diabin.festec.example.event.TestEvent;
 import com.diabin.latte.app.Latte;
 import com.diabin.latte.ec.database.DatabaseManager;
 import com.diabin.latte.ec.icon.FontEcModule;
@@ -25,6 +26,7 @@ public class ExampleApp extends Application {
                 .withJavascriptInterface("latte")
                 //添加Cookie同步拦截器
                 .withWebHost("http:/phpcms.lnkjdx.com/cyj/")
+                .withWebEvent("test",new TestEvent())
                 .withInterceptor(new DebugInterceptor("test",R.raw.test))
                 .configure();
 

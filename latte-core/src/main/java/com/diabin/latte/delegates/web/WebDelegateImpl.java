@@ -8,6 +8,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.diabin.latte.delegates.IPageLoadListener;
 import com.diabin.latte.delegates.web.chromeclient.WebChromeClientImpl;
 import com.diabin.latte.delegates.web.client.WebViewClientImpl;
 import com.diabin.latte.delegates.web.route.RouteKeys;
@@ -27,7 +28,7 @@ import com.flj.latte.delegates.web.route.Router;
 
 public class WebDelegateImpl extends WebDelegate {
 
-//    private IPageLoadListener mIPageLoadListener = null;
+    private IPageLoadListener mIPageLoadListener = null;
 
     public static WebDelegateImpl create(String url) {
         final Bundle args = new Bundle();
@@ -42,9 +43,9 @@ public class WebDelegateImpl extends WebDelegate {
         return getWebView();
     }
 
-   /* public void setPageLoadListener(IPageLoadListener listener) {
+    public void setPageLoadListener(IPageLoadListener listener) {
         this.mIPageLoadListener = listener;
-    }*/
+    }
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {

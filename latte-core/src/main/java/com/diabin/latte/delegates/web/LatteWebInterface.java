@@ -3,6 +3,9 @@ package com.diabin.latte.delegates.web;
 import android.webkit.JavascriptInterface;
 
 import com.alibaba.fastjson.JSON;
+import com.diabin.latte.delegates.web.event.Event;
+import com.diabin.latte.delegates.web.event.EventManager;
+import com.diabin.latte.util.log.LatteLogger;
 
 /*import com.diabin.latte.delegates.web.event.Event;
 import com.diabin.latte.delegates.web.event.EventManager;*/
@@ -26,7 +29,7 @@ final class LatteWebInterface {
     @JavascriptInterface
     public String event(String params) {
         final String action = JSON.parseObject(params).getString("action");
-        /*final Event event = EventManager.getInstance().createEvent(action);
+        final Event event =  EventManager.getInstance().createEvent(action);
         LatteLogger.d("WEB_EVENT",params);
         if (event != null) {
             event.setAction(action);
@@ -34,7 +37,7 @@ final class LatteWebInterface {
             event.setContext(DELEGATE.getContext());
             event.setUrl(DELEGATE.getUrl());
             return event.execute(params);
-        }*/
+        }
         return null;
     }
 }

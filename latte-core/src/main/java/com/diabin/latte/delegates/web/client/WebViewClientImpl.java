@@ -8,14 +8,12 @@ import android.webkit.WebViewClient;
 
 import com.diabin.latte.app.ConfigType;
 import com.diabin.latte.app.Latte;
+import com.diabin.latte.delegates.IPageLoadListener;
 import com.diabin.latte.delegates.web.WebDelegate;
 import com.diabin.latte.delegates.web.route.Router;
 import com.diabin.latte.ui.LatteLoader;
 import com.diabin.latte.util.log.LatteLogger;
 import com.diabin.latte.util.storage.LattePreference;
-
-
-//import com.diabin.latte.delegates.IPageLoadListener;
 //import com.diabin.latte.ui.loader.LatteLoader;
 
 /**
@@ -25,12 +23,12 @@ import com.diabin.latte.util.storage.LattePreference;
 public class WebViewClientImpl extends WebViewClient {
 
     private final WebDelegate DELEGATE;
-//    private IPageLoadListener mIPageLoadListener = null;
+    private IPageLoadListener mIPageLoadListener = null;
     private static final Handler HANDLER = Latte.getHandler();
 
-  /*  public void setPageLoadListener(IPageLoadListener listener) {
+    public void setPageLoadListener(IPageLoadListener listener) {
         this.mIPageLoadListener = listener;
-    }*/
+    }
 
     public WebViewClientImpl(WebDelegate delegate) {
         this.DELEGATE = delegate;
@@ -45,9 +43,9 @@ public class WebViewClientImpl extends WebViewClient {
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
         super.onPageStarted(view, url, favicon);
-       /* if (mIPageLoadListener != null) {
+        if (mIPageLoadListener != null) {
             mIPageLoadListener.onLoadStart();
-        }*/
+        }
         LatteLoader.showLoading(view.getContext());
     }
 
@@ -72,9 +70,9 @@ public class WebViewClientImpl extends WebViewClient {
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
         syncCookie();
-    /*    if (mIPageLoadListener != null) {
+        if (mIPageLoadListener != null) {
             mIPageLoadListener.onLoadEnd();
-        }*/
+        }
         HANDLER.postDelayed(new Runnable() {
             @Override
             public void run() {

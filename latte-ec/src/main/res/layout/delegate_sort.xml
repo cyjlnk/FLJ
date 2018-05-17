@@ -15,7 +15,7 @@
         android:textSize="20sp"
         android:layout_marginTop="6dp"
         android:textColor="@android:color/white"
-        android:text="分类"
+        android:text="热物性查询"
         android:gravity="center"/>
 
     </android.support.v7.widget.Toolbar>
